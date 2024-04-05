@@ -1,6 +1,9 @@
 
 # GraphQL
 
+[GraphQL Official](https://graphql.org/learn/) • 
+[Training Courses](https://graphql.org/community/resources/training-courses/)
+
 GraphQL is a query language and runtime for APIs that was developed by Facebook and released as an open-source project in 2015. It provides a more efficient, powerful, and flexible alternative to traditional RESTful APIs for fetching and manipulating data. Here's an overview of GraphQL and how it differs from similar tools:
 
 1. Declarative Data Fetching:
