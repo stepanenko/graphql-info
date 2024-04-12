@@ -4,7 +4,51 @@
 [GraphQL Official](https://graphql.org/learn/) • 
 [Training Courses](https://graphql.org/community/resources/training-courses/)
 
-GraphQL is a query language and runtime for APIs that was developed by Facebook and released as an open-source project in 2015. It provides a more efficient, powerful, and flexible alternative to traditional RESTful APIs for fetching and manipulating data. Here's an overview of GraphQL and how it differs from similar tools:
+GraphQL is a query language and runtime for APIs that was developed by Facebook and released as an open-source project in 2015. It provides a more efficient, powerful, and flexible alternative to traditional RESTful APIs for fetching and manipulating data. 
+
+A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type. For example, a GraphQL service that tells you who the logged in user is (me) as well as that user’s name might look like this:
+```graphql
+type Query {
+  me: User
+}
+ 
+type User {
+  id: ID
+  name: String
+}
+```
+
+Along with functions for each field on each type:
+```js
+function Query_me(request) {
+  return request.auth.user;
+}
+ 
+function User_name(user) {
+  return user.getName();
+}
+```
+
+After a GraphQL service is running (typically at a URL on a web service), it can receive GraphQL queries to validate and execute. The service first checks a query to ensure it only refers to the types and fields defined, and then runs the provided functions to produce a result.
+
+For example, the query:
+```graphql
+{
+  me {
+    name
+  }
+}
+```
+Could produce the following JSON result:
+```json
+{
+  "me": {
+    "name": "Luke Skywalker"
+  }
+}
+```
+
+Here's an overview of GraphQL and how it differs from similar tools:
 
 1. Declarative Data Fetching:
 
